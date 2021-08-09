@@ -11,7 +11,7 @@ COMMAND = "xrandr | grep \"HDMI-1\""
 
 xr1 = os.popen(COMMAND)
 status1 = xr1.read()
-first_iteration = True;
+first_iteration = True
 
 def get_line():
     """ Get number line of HandleLidSwitch """
