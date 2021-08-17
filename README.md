@@ -1,4 +1,4 @@
-# Video Port Screen Suspender
+# Lid Screen Suspender
 This script allows you to setup you laptop as a computer desktop closing the lid without suspend the PC while a video cable is connected to a external monitor/s. If video cable is unplugged, then close the lid will suspend the laptop. 
 
 ## Requeriments
