@@ -1,5 +1,5 @@
 # Video Port Screen Suspender
-This script allows you to setup you laptop as a computer desktop closing the lid without suspend the PC while a video cable is connected to a external monitor. If video cable is unplugged, then close the lid will suspend the laptop. 
+This script allows you to setup you laptop as a computer desktop closing the lid without suspend the PC while a video cable is connected to a external monitor/s. If video cable is unplugged, then close the lid will suspend the laptop. 
 
 ## Requeriments
 ### Linux
@@ -24,4 +24,4 @@ For automate with `crontab` just add this line to your crontab file:
     @reboot sudo /absolute-full-path-of-where-script-is/hdmi-screen-suspender.sh &
 
 ### Windows
-You can use the **Windows Task Scheduler** to set up the script and run it on every boot. But an easy way to do it, is just grab the [windows-screen-suspender.ps1]() and then move it into the directory `%APPDATA%\Microsoft\Windows\Start Menu\Startup`  
+You can use the **Windows Task Scheduler** to set up the script and run it on every boot. But an easy way to do it, is just grab the [windows-screen-suspender.ps1](https://github.com/alb3rtov/hdmi-screen-suspender/blob/main/windows-screen-suspender.ps1) and then move it into the directory `%APPDATA%\Microsoft\Windows\Start Menu\Startup`  
