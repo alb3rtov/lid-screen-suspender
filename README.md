@@ -21,7 +21,11 @@ In order to automate this tasks there are differents ways to run a script on boo
 
 For automate with `crontab` just add this line to your crontab file:
 
-    @reboot sudo /absolute-full-path-of-where-script-is/hdmi-screen-suspender.sh &
+    @reboot sudo /absolute-full-path-of-where-script-is/linux-screen-suspender.sh &
 
 ### Windows
-You can use the **Windows Task Scheduler** to set up the script and run it on every boot. But an easy way to do it, is just grab the [windows-screen-suspender.ps1](https://github.com/alb3rtov/hdmi-screen-suspender/blob/main/windows-screen-suspender.ps1) and then move it into the directory `%APPDATA%\Microsoft\Windows\Start Menu\Startup`  
+You can use the **Windows Task Scheduler** to set up the script and run it on every boot. You just create a new basic task, give it a name and description, set the _trigger_ as 'When I log on' and set the _action_ as **Start a program** and add next command:
+
+    Powershell.exe -windowstyle hidden "\absolute-full-path-of-where-script-is\windows-screen-suspender.ps1"
+
+In addition, maybe you have to change some properties of the task, like set the OS to Windows 10, and check the box of **Run with highest privileges**. Now on every boot a `powershell` window will pop up for few seconds and then the script will be running on background.
