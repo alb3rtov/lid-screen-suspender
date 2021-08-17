@@ -3,7 +3,7 @@ This script allows you to setup you laptop as a computer desktop closing the lid
 
 ## Requeriments
 ### Linux
-In the absence of testing on different Linux distributions, as far as I check, this script works in every Linux distributions. You just to be sure that the `logind.conf` is in `/etc/systemd/` directory. In order to check what ports are being used, use the `xrandr` command. More info about `logind.conf` file [here](https://www.freedesktop.org/software/systemd/man/logind.conf.html).
+In the absence of testing on different Linux distributions, as far as I check, this script works in every Linux distributions. You just to be sure that the `logind.conf` is in `/etc/systemd/` directory. **Make sure that your logind.conf have HandleLidSwitch line like** `HandleLidSwitch=ignore` or `#HandleLidSwitch=ignore`, otherwise maybe the script will not work properly. More info about `logind.conf` file [here](https://www.freedesktop.org/software/systemd/man/logind.conf.html).
 
 ### Windows
 The only requeriment for Windows OS is have a `Powershell` version `5.1` or higher. In order to know what is your current version use the command `Get-Host | Select-Object Version`.

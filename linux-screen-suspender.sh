@@ -1,31 +1,28 @@
 #!/bin/bash
-DISCONNECTED="disconnected"
-CONNECTED="connected"
 HLS_OFF="#HandleLidSwitch=ignore"
 HLS_ON="HandleLidSwitch=ignore"
 FILENAME="/etc/systemd/logind.conf"
+COMMAND="xrandr | grep -w 'connected' | wc -l"
 
-status1=$(xrandr | grep "HDMI-1")
-first_iteration=true
+status1=$(eval "$COMMAND")
 
 modify_file() {
-    sed -i "s/$2/$1/" FILENAME
+    sudo sed -i "s/$2/$1/" $FILENAME
 }
 
 while true; do
     sleep 5
-    status2=$(xrandr | grep "HDMI-1")
+    status2=$(eval "$COMMAND")
 
-    if [[ $status1 == $status2 ]] || [[ $first_iteration ]]
+    if [[ $status1 != $status2 ]]
     then
         status1=$status2
-        first_iteration=false
 
-        if [[ $status2 == *$DISCONNECTED* ]]
+        if [[ $status2 > 1 ]]
         then
-            modify_file $HLS_OFF $HLS_ON
-        else
             modify_file $HLS_ON $HLS_OFF
+        else
+            modify_file $HLS_OFF $HLS_ON
         fi
     fi
 done
